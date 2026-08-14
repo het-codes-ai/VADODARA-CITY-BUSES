@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vadodara City Connect | Vinayak City Bus</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <i class="fa-solid fa-bus-simple logo-icon"></i>
+                <div class="logo-text">
+                    <h1>Vadodara <span>Connect</span></h1>
+                    <p>Official City Bus Route Portal</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#search-section" class="active"><i class="fa-solid fa-route"></i> Find Bus</a></li>
+                    <li><a href="#live-status"><i class="fa-solid fa-clock"></i> Timings</a></li>
+                    <li><a href="#popular-routes"><i class="fa-solid fa-map-location-dot"></i> Routes</a></li>
+                    <li><a href="#fare-chart"><i class="fa-solid fa-ticket"></i> Fares</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-overlay">
+            <h2>Reliable, Safe & Daily Transit Across Vadodara</h2>
+            <p>Check schedules, routes, and halts for Electric & Standard City Buses</p>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <main class="main-container">
+
+        <!-- Search Box (Train-App Inspired) -->
+        <section class="search-card" id="search-section">
+            <div class="card-header">
+                <i class="fa-solid fa-magnifying-glass-location"></i> Search Bus Routes
+            </div>
+            <form id="busSearchForm" onsubmit="event.preventDefault(); handleSearch();">
+                <div class="input-group">
+                    <div class="field-box">
+                        <label for="fromStop"><i class="fa-solid fa-circle-dot source-icon"></i> From (Source)</label>
+                        <input type="text" id="fromStop" placeholder="e.g., Vadodara Station, Mandvi" required list="stopSuggestions">
+                    </div>
+                    <button type="button" class="swap-btn" id="swapBtn" onclick="swapStops()" title="Swap Stops">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                    </button>
+                    <div class="field-box">
+                        <label for="toStop"><i class="fa-solid fa-location-dot dest-icon"></i> To (Destination)</label>
+                        <input type="text" id="toStop" placeholder="e.g., MSU Campus, Gotri" required list="stopSuggestions">
+                    </div>
+                </div>
+                <button type="submit" class="search-btn"><i class="fa-solid fa-bus"></i> Search Buses</button>
+            </form>
+
+            <datalist id="stopSuggestions">
+                <option value="Vadodara Central Bus Station (Pandya Bridge)"></option>
+                <option value="Railway Station (Station Road)"></option>
+                <option value="MS University Main Campus"></option>
+                <option value="Mandvi Clock Tower"></option>
+                <option value="Fatehgunj Circle"></option>
+                <option value="Akota Stadium"></option>
+                <option value="Gotri Hospital"></option>
+                <option value="Waghodia Road Crossings"></option>
+                <option value="Makarpura GIDC"></option>
+                <option value="Sama Savli Road"></option>
+            </datalist>
+        </section>
+
+        <!-- Search Results Section -->
+        <section class="results-section hidden" id="resultsSection">
+            <h3 class="section-title">Available Bus Services</h3>
+            <div class="bus-cards-container" id="busCardsContainer">
+                <!-- Injected dynamically via JS -->
+            </div>
+        </section>
+
+        <!-- Live Route Schedule Modal / Drawer Simulation -->
+        <section class="popular-section" id="popular-routes">
+            <h3 class="section-title">Major Transit Corridors in Vadodara</h3>
+            <div class="routes-grid">
+                <div class="route-card">
+                    <div class="route-badge">Route 11</div>
+                    <h4>Railway Station ⇄ Makarpura GIDC</h4>
+                    <p><i class="fa-solid fa-stopwatch"></i> Every 15 Mins | Electric AC</p>
+                    <button onclick="quickFilter('Railway Station', 'Makarpura GIDC')">View Timetable</button>
+                </div>
+                <div class="route-card">
+                    <div class="route-badge">Route 24</div>
+                    <h4>Pandya Bridge ⇄ Gotri Road</h4>
+                    <p><i class="fa-solid fa-stopwatch"></i> Every 20 Mins | Non-AC Standard</p>
+                    <button onclick="quickFilter('Pandya Bridge', 'Gotri Road')">View Timetable</button>
+                </div>
+                <div class="route-card">
+                    <div class="route-badge">Route 08</div>
+                    <h4>Fatehgunj ⇄ Waghodia Crossing</h4>
+                    <p><i class="fa-solid fa-stopwatch"></i> Every 10 Mins | Express Service</p>
+                    <button onclick="quickFilter('Fatehgunj', 'Waghodia Crossing')">View Timetable</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Grid -->
+        <section class="info-grid" id="fare-chart">
+            <div class="info-card">
+                <i class="fa-solid fa-indian-rupee-sign info-icon"></i>
+                <h4>Student Pass & Fares</h4>
+                <p>Base fares start at ₹5 for the first 3 km. Student concessions are available at Vadodara Central Bus Station counters.</p>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-shield-halved info-icon"></i>
+                <h4>Safety & Helpline</h4>
+                <p>All city electric buses feature GPS tracking, CCTV surveillance, and dedicated women seating.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p><strong>Vadodara City Connect</strong> - Student Transit & Community Project</p>
+            <p>Built for commuters across Sayajaganj, MSU, Gotri, Waghodia & Makarpura.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
