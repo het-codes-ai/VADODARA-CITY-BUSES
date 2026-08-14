@@ -1,0 +1,414 @@
+/* Color Palette: Light Blue, Deep Transit Navy, Clean White */
+:root {
+    --primary-blue: #0077b6;
+    --dark-blue: #03045e;
+    --light-bg: #f4f9fc;
+    --card-bg: #ffffff;
+    --accent-blue: #90e0ef;
+    --text-color: #2b2d42;
+    --text-muted: #6c757d;
+    --border-color: #caf0f8;
+    --success-green: #2a9d8f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Navbar */
+.navbar {
+    background-color: var(--dark-blue);
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    color: var(--accent-blue);
+}
+
+.logo-text h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.logo-text h1 span {
+    color: var(--accent-blue);
+}
+
+.logo-text p {
+    font-size: 0.75rem;
+    color: #ade8f4;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-blue);
+}
+
+/* Hero Section */
+.hero-banner {
+    background: url('https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+    height: 180px;
+    position: relative;
+}
+
+.hero-overlay {
+    background: linear-gradient(180deg, rgba(3, 4, 94, 0.75) 0%, rgba(0, 119, 182, 0.85) 100%);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.hero-overlay h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+}
+
+.hero-overlay p {
+    font-size: 0.95rem;
+    color: #caf0f8;
+}
+
+/* Main Container */
+.main-container {
+    max-width: 1000px;
+    margin: -30px auto 40px auto;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+/* Search Box Styling (Train-App UI) */
+.search-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(3, 4, 94, 0.08);
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.card-header {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.2rem;
+}
+
+.field-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.field-box label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.source-icon { color: #2a9d8f; }
+.dest-icon { color: #e63946; }
+
+.field-box input {
+    padding: 0.75rem;
+    border: 1.5px solid #d8e2dc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.field-box input:focus {
+    border-color: var(--primary-blue);
+}
+
+.swap-btn {
+    background: #e0f2fe;
+    border: none;
+    color: var(--primary-blue);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 15px;
+    transition: transform 0.3s;
+}
+
+.swap-btn:hover {
+    transform: rotate(180deg);
+    background: var(--accent-blue);
+}
+
+.search-btn {
+    width: 100%;
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    border: none;
+    padding: 0.85rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-btn:hover {
+    background-color: var(--dark-blue);
+}
+
+/* Results Section */
+.results-section {
+    margin-top: 2rem;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    color: var(--dark-blue);
+    margin-bottom: 1rem;
+}
+
+.bus-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--primary-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bus-info-main {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.bus-number-badge {
+    background: #e0f2fe;
+    color: var(--dark-blue);
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.route-details h4 {
+    color: var(--text-color);
+    font-size: 1.05rem;
+}
+
+.route-details p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.timeline {
+    display: flex;
+    gap: 25px;
+    text-align: center;
+}
+
+.time-box span {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.time-box strong {
+    font-size: 1.1rem;
+    color: var(--dark-blue);
+}
+
+.tag-electric {
+    background: #d8f3dc;
+    color: #1b4332;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Popular Routes Section */
+.popular-section {
+    margin-top: 2.5rem;
+}
+
+.routes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+.route-card {
+    background: var(--card-bg);
+    padding: 1.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.route-badge {
+    display: inline-block;
+    background: var(--primary-blue);
+    color: white;
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.route-card h4 {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+}
+
+.route-card p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.route-card button {
+    background: transparent;
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.route-card button:hover {
+    background: #e0f2fe;
+}
+
+/* Info Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 2rem;
+}
+
+.info-card {
+    background: #e0f2fe;
+    padding: 1.2rem;
+    border-radius: 8px;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+}
+
+.info-card h4 {
+    margin-bottom: 6px;
+    color: var(--dark-blue);
+}
+
+.info-card p {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    line-height: 1.4;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    background: var(--dark-blue);
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.85rem;
+}
+
+footer p {
+    margin-bottom: 4px;
+    color: #ade8f4;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .input-group {
+        flex-direction: column;
+    }
+    .swap-btn {
+        margin: -5px 0;
+    }
+    .bus-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
