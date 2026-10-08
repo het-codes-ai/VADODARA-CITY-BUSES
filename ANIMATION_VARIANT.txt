@@ -1,0 +1,4 @@
+SUGGESTED VARIANT
+
+This is the ASSISTANT-SUGGESTED product version: a more restrained cinematic transit scene integrated into the existing hero/search experience.
+Original route/stop/fare/translation content was not edited; the animation layer is additive.
